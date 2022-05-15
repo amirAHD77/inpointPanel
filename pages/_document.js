@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html>
+    <Html dir="rtl">
       <Head>
         <link
           rel="preload"
@@ -12,7 +12,7 @@ export default function Document() {
           type="font/truetype"
         />
       </Head>
-      <body>
+      <body dir="rtl">
         <Main />
         <NextScript />
       </body>

@@ -1,0 +1,3 @@
+const persian = {
+  components: {},
+};
