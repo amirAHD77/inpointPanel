@@ -27,6 +27,7 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { ThemeProvider } from "styled-components";
 
 import { DrawerContainer } from "./index.style";
+import Content from "../content/index";
 import { tokenCounter } from "../../action";
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -142,16 +143,17 @@ const Drawer = () => {
           </List>
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <DrawerHeader />
-          <div className="container">
-            <label className="label">عنوان کاربری</label>
-            <input className="input" />
-            <label className="label">نام کاربری</label>
-            <input className="input" />
-            <label className="label">رمز عبور</label>
-            <input className="input" />
-            <button className="button">ایجاد</button>
-          </div>
+          <Content>
+            <div className="container">
+              <label className="label">عنوان کاربری</label>
+              <input className="input" />
+              <label className="label">نام کاربری</label>
+              <input className="input" />
+              <label className="label">رمز عبور</label>
+              <input className="input" />
+              <button className="button">ایجاد</button>
+            </div>
+          </Content>
         </Box>
       </Box>
     </DrawerContainer>
