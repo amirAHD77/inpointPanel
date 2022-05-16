@@ -1,7 +1,9 @@
 import React from "react";
 
-const AddAdmin = () => {
-  return <div>AddAdmin</div>;
+import AddAdmin from "../../components/addAdmin/index";
+
+const index = () => {
+  return <AddAdmin />;
 };
 
-export default AddAdmin;
+export default index;
