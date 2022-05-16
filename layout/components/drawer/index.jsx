@@ -4,31 +4,25 @@ import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
 import { makeStyles } from "@mui/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
-import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import MailIcon from "@mui/icons-material/Mail";
-import { createTheme } from "@mui/material/styles";
-import { StyleSheetManager } from "styled-components";
-import rtlPlugin from "stylis-plugin-rtl";
-import { ThemeProvider } from "styled-components";
-
+import ViewList from "@mui/icons-material/ViewList";
+import Monetization from "@mui/icons-material/MonetizationOn";
+import Setting from "@mui/icons-material/Settings";
+import Group from "@mui/icons-material/Group";
+import themes from "../../../utils/themes";
 import { DrawerContainer } from "./index.style";
 import Content from "../content/index";
-import { tokenCounter } from "../../action";
+import Link from "next/link";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -42,12 +36,14 @@ const Drawer = (props) => {
   const [timer, setTimer] = useState(100);
   const time = useSelector((it) => it.tokenTimer);
   const [open, setOpen] = useState(false);
-
-  const theme = useTheme({});
-
+  const isSuperAdmin = useSelector((store) => store);
   const dispatch = useDispatch();
-  const drawerWidth = 240;
-
+  const drawerWidth = 200;
+  const [colors, setColors] = useState(themes().admin);
+  useEffect(() => {
+    console.log(isSuperAdmin);
+    setColors(isSuperAdmin ? themes().super : themes().admin);
+  }, [isSuperAdmin]);
   const openedMixin = (theme) => ({
     width: drawerWidth,
     transition: theme.transitions.create("width", {
@@ -98,7 +94,7 @@ const Drawer = (props) => {
   const drawerHandler = () => {
     setOpen(!open);
   };
-
+  console.log(colors);
   return (
     <DrawerContainer>
       <Box sx={{ display: "flex" }}>
@@ -110,18 +106,25 @@ const Drawer = (props) => {
           open={open}
         >
           <DrawerHeader>
-            <IconButton onClick={drawerHandler}>
+            <IconButton
+              onClick={drawerHandler}
+              sx={{
+                color: "white",
+                mx: !open ? "auto" : 0,
+              }}
+            >
               {open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
             </IconButton>
           </DrawerHeader>
           <Divider />
 
           <List>
-            {["اکانت ادمین"].map((text, index) => (
-              <ListItem key={text} disablePadding sx={{ display: "block" }}>
+            <ListItem disablePadding sx={{ display: "block" }}>
+              <Link href="/addAdmin">
                 <ListItemButton
                   sx={{
                     minHeight: 48,
+                    color: "white",
                     justifyContent: open ? "initial" : "center",
                     px: 2.5,
                   }}
@@ -130,16 +133,186 @@ const Drawer = (props) => {
                     color="white"
                     sx={{
                       minWidth: 0,
-                      mr: open ? 3 : "auto",
+
+                      color: "white",
                       justifyContent: "center",
                     }}
                   >
-                    {index % 2 === 0 ? <AccountCircle /> : <AccountCircle />}
+                    <AccountCircle />
                   </ListItemIcon>
-                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                  <ListItemText
+                    primary={"اکانت ادمین"}
+                    sx={{
+                      opacity: open ? 1 : 0,
+                      textAlign: "right",
+                      mr: open ? 2 : 0,
+                    }}
+                  />
                 </ListItemButton>
-              </ListItem>
-            ))}
+              </Link>
+            </ListItem>
+            <ListItem disablePadding sx={{ display: "block" }}>
+              <Link href="/adminList">
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                    color: "white",
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 0 : "auto",
+                      color: "white",
+
+                      justifyContent: "center",
+                    }}
+                  >
+                    <ViewList />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={"مدیریت پنل‌های غعال"}
+                    sx={{
+                      opacity: open ? 1 : 0,
+                      textAlign: "right",
+                      mr: open ? 2 : 0,
+                    }}
+                  />
+                </ListItemButton>
+              </Link>
+            </ListItem>
+            <ListItem disablePadding sx={{ display: "block" }}>
+              <Link href="/finance">
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                    color: "white",
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 0 : "auto",
+                      color: "white",
+
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Monetization />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={"حسالداری و مالی"}
+                    sx={{
+                      opacity: open ? 1 : 0,
+                      textAlign: "right",
+                      mr: open ? 2 : 0,
+                    }}
+                  />
+                </ListItemButton>
+              </Link>
+            </ListItem>{" "}
+            <ListItem disablePadding sx={{ display: "block" }}>
+              <Link href="/eventsSetting">
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    color: "white",
+
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                  }}
+                >
+                  <ListItemIcon
+                    color="white"
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 0 : "auto",
+                      color: "white",
+
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Setting />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={"تنظیمات کلی رویداد"}
+                    sx={{
+                      opacity: open ? 1 : 0,
+                      textAlign: "right",
+                      mr: open ? 2 : 0,
+                    }}
+                  />
+                </ListItemButton>
+              </Link>
+            </ListItem>
+            <ListItem disablePadding sx={{ display: "block" }}>
+              <Link href="/guestsList">
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                    color: "white",
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 0 : "auto",
+                      color: "white",
+
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Group />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={"اطلاعات کاربران مهمان"}
+                    sx={{
+                      opacity: open ? 1 : 0,
+                      textAlign: "right",
+                      mr: open ? 2 : 0,
+                    }}
+                  />
+                </ListItemButton>
+              </Link>
+            </ListItem>{" "}
+            <ListItem disablePadding sx={{ display: "block" }}>
+              <Link href="/transactions">
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                    color: "white",
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 0 : "auto",
+                      color: "white",
+
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Monetization />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={"عملیات مالی"}
+                    sx={{
+                      opacity: open ? 1 : 0,
+                      textAlign: "right",
+                      mr: open ? 2 : 0,
+                    }}
+                  />
+                </ListItemButton>
+              </Link>
+            </ListItem>
           </List>
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>

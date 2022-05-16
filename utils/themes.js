@@ -1,12 +1,12 @@
 const Themes = () => {
   const colors = {
-    main: {
-      main: "yellowgreen",
-      text: "#333",
+    super: {
+      main: "0f5f39",
+      secondary: "#e9e8ee",
     },
-    dark: {
+    admin: {
       main: "#212529",
-      text: "#fff",
+      secondary: "#fff",
     },
   };
 
