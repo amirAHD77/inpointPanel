@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
   },
 }));
-const Drawer = () => {
+const Drawer = (props) => {
   const classes = useStyles(); // ❌ called outside of ThemeProvider
 
   const [timer, setTimer] = useState(100);
@@ -143,17 +143,7 @@ const Drawer = () => {
           </List>
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <Content>
-            <div className="container">
-              <label className="label">عنوان کاربری</label>
-              <input className="input" />
-              <label className="label">نام کاربری</label>
-              <input className="input" />
-              <label className="label">رمز عبور</label>
-              <input className="input" />
-              <button className="button">ایجاد</button>
-            </div>
-          </Content>
+          <Content>{props.children}</Content>
         </Box>
       </Box>
     </DrawerContainer>
