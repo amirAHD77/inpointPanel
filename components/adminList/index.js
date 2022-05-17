@@ -20,32 +20,138 @@ const AdminList = () => {
     <AdminListContainer>
       <form onSubmit={formik.handleSubmit}>
         <h5 className="headerTitle">مدیریت پنل های فعال</h5>
-        <Table className="table" striped bordered hover>
+        <Table
+          bordered={true}
+          className="table"
+          striped
+          hover
+          responsive={false}
+        >
           <thead>
             <tr>
               <th>#</th>
               <th>پنل های فعال</th>
-              <th>Last Name</th>
-              <th>Username</th>
+              <th>مبلغ اعتبار</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <td className="name"> آنلاین غرب</td>
+              <td className="price"> 2,500,000 ریال</td>
+              <td>
+                <div className="functionsContainer">
+                  <div className="btn disable">غیر فعال سازی</div>
+                  <div className="btn delete">حذف</div>
+                  <div className="btn edit">ویرایش اطلاعات</div>
+                  <div className="btn logs">لاگ پرداخت</div>
+                </div>
+              </td>
             </tr>
             <tr>
-              <td>2</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
+              <td>1</td>
+              <td className="name"> آنلاین غرب</td>
+              <td className="price"> 2,500,000 ریال</td>
+              <td>
+                <div className="functionsContainer">
+                  <div className="btn disable">غیر فعال سازی</div>
+                  <div className="btn delete">حذف</div>
+                  <div className="btn edit">ویرایش اطلاعات</div>
+                  <div className="btn logs">لاگ پرداخت</div>
+                </div>
+              </td>
             </tr>
             <tr>
-              <td>3</td>
-              <td colSpan={2}>Larry the Bird</td>
-              <td>@twitter</td>
+              <td>1</td>
+              <td className="name"> آنلاین غرب</td>
+              <td className="price"> 2,500,000 ریال</td>
+              <td>
+                <div className="functionsContainer">
+                  <div className="btn disable">غیر فعال سازی</div>
+                  <div className="btn delete">حذف</div>
+                  <div className="btn edit">ویرایش اطلاعات</div>
+                  <div className="btn logs">لاگ پرداخت</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td className="name"> آنلاین غرب</td>
+              <td className="price"> 2,500,000 ریال</td>
+              <td>
+                <div className="functionsContainer">
+                  <div className="btn disable">غیر فعال سازی</div>
+                  <div className="btn delete">حذف</div>
+                  <div className="btn edit">ویرایش اطلاعات</div>
+                  <div className="btn logs">لاگ پرداخت</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td className="name"> آنلاین غرب</td>
+              <td className="price"> 2,500,000 ریال</td>
+              <td>
+                <div className="functionsContainer">
+                  <div className="btn disable">غیر فعال سازی</div>
+                  <div className="btn delete">حذف</div>
+                  <div className="btn edit">ویرایش اطلاعات</div>
+                  <div className="btn logs">لاگ پرداخت</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td className="name"> آنلاین غرب</td>
+              <td className="price"> 2,500,000 ریال</td>
+              <td>
+                <div className="functionsContainer">
+                  <div className="btn disable">غیر فعال سازی</div>
+                  <div className="btn delete">حذف</div>
+                  <div className="btn edit">ویرایش اطلاعات</div>
+                  <div className="btn logs">لاگ پرداخت</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td className="name"> آنلاین غرب</td>
+              <td className="price"> 2,500,000 ریال</td>
+              <td>
+                <div className="functionsContainer">
+                  <div className="btn disable">غیر فعال سازی</div>
+                  <div className="btn delete">حذف</div>
+                  <div className="btn edit">ویرایش اطلاعات</div>
+                  <div className="btn logs">لاگ پرداخت</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td className="name"> آنلاین غرب</td>
+              <td className="price"> 2,500,000 ریال</td>
+              <td>
+                <div className="functionsContainer">
+                  <div className="btn disable">غیر فعال سازی</div>
+                  <div className="btn delete">حذف</div>
+                  <div className="btn edit">ویرایش اطلاعات</div>
+                  <div className="btn logs">لاگ پرداخت</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td className="name"> آنلاین غرب</td>
+              <td className="price"> 2,500,000 ریال</td>
+              <td>
+                <div className="functionsContainer">
+                  <div className="btn disable">غیر فعال سازی</div>
+                  <div className="btn delete">حذف</div>
+                  <div className="btn edit">ویرایش اطلاعات</div>
+                  <div className="btn logs">لاگ پرداخت</div>
+                </div>
+              </td>
             </tr>
           </tbody>
         </Table>
