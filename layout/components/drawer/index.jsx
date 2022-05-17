@@ -128,6 +128,7 @@ const Drawer = (props) => {
                     color: "black",
                     justifyContent: open ? "initial" : "center",
                     px: 2.5,
+                    fontFamily: ".93rem",
                   }}
                 >
                   <ListItemIcon
@@ -159,6 +160,7 @@ const Drawer = (props) => {
                     justifyContent: open ? "initial" : "center",
                     px: 2.5,
                     color: "black",
+                    fontFamily: ".93rem",
                   }}
                 >
                   <ListItemIcon
@@ -222,6 +224,7 @@ const Drawer = (props) => {
                     color: "black",
                     justifyContent: open ? "initial" : "center",
                     px: 2.5,
+                    fontFamily: ".93rem",
                   }}
                 >
                   <ListItemIcon
@@ -254,6 +257,7 @@ const Drawer = (props) => {
                     justifyContent: open ? "initial" : "center",
                     px: 2.5,
                     color: "black",
+                    fontFamily: ".93rem",
                   }}
                 >
                   <ListItemIcon
@@ -285,6 +289,7 @@ const Drawer = (props) => {
                     justifyContent: open ? "initial" : "center",
                     px: 2.5,
                     color: "black",
+                    fontFamily: ".93rem",
                   }}
                 >
                   <ListItemIcon
