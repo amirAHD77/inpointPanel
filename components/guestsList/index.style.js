@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const AddAdminContainer = styled.div`
+const GuestsListContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -8,7 +8,6 @@ const AddAdminContainer = styled.div`
   justify-content: center;
 
   form {
-    /* border: 1px solid #ddd; */
     padding: 24px;
     border-radius: 12px;
     display: flex;
@@ -16,7 +15,7 @@ const AddAdminContainer = styled.div`
     box-shadow: 0px 0px 10px 3px rgba(69, 94, 100, 0.12);
   }
 
-  input {
+  .input {
     min-width: 500px;
     background-color: #e1e1e1;
     height: 40px;
@@ -24,6 +23,8 @@ const AddAdminContainer = styled.div`
     padding: 4px 16px;
     margin-top: 16px;
     margin-bottom: 16px;
+    text-align: initial;
+    background-image: none;
   }
 
   label {
@@ -39,13 +40,13 @@ const AddAdminContainer = styled.div`
     background-color: orange;
     border: 0;
     border-radius: 8px;
-    width: 150px;
+    width: 300px;
     align-self: center;
     padding: 8px 32px;
     text-align: center;
     color: white;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 15px;
     margin-top: 16px;
   }
 
@@ -56,4 +57,4 @@ const AddAdminContainer = styled.div`
   }
 `;
 
-export default AddAdminContainer;
+export default GuestsListContainer;

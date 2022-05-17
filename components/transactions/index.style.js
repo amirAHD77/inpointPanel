@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const AddAdminContainer = styled.div`
+const TransactionsContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -39,7 +39,7 @@ const AddAdminContainer = styled.div`
     background-color: orange;
     border: 0;
     border-radius: 8px;
-    width: 150px;
+    width: 250px;
     align-self: center;
     padding: 8px 32px;
     text-align: center;
@@ -56,4 +56,4 @@ const AddAdminContainer = styled.div`
   }
 `;
 
-export default AddAdminContainer;
+export default TransactionsContainer;
