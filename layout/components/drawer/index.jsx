@@ -23,15 +23,16 @@ import themes from "../../../utils/themes";
 import { DrawerContainer } from "./index.style";
 import Content from "../content/index";
 import Link from "next/link";
-const useStyles = makeStyles({
-  root: {
-    display: "flex",
-    backgroundColor: (props) => props.secondary,
-    borderColor: (props) => props.main,
-  },
-});
 
 const Drawer = (props) => {
+  const useStyles = makeStyles({
+    root: {
+      display: "flex",
+      backgroundColor: (props) => props.secondary,
+      borderColor: (props) => props.main,
+    },
+  });
+
   const [timer, setTimer] = useState(100);
   const time = useSelector((it) => it.tokenTimer);
   const [open, setOpen] = useState(false);
@@ -133,7 +134,6 @@ const Drawer = (props) => {
                     color="white"
                     sx={{
                       minWidth: 0,
-
                       color: colors.main,
                       justifyContent: "center",
                     }}
@@ -166,14 +166,13 @@ const Drawer = (props) => {
                       minWidth: 0,
                       mr: open ? 0 : "auto",
                       color: colors.main,
-
                       justifyContent: "center",
                     }}
                   >
                     <ViewList />
                   </ListItemIcon>
                   <ListItemText
-                    primary={"مدیریت پنل‌های غعال"}
+                    primary={"مدیریت پنل‌های فعال"}
                     sx={{
                       opacity: open ? 1 : 0,
                       textAlign: "right",
@@ -183,7 +182,7 @@ const Drawer = (props) => {
                 </ListItemButton>
               </Link>
             </ListItem>
-            <ListItem disablePadding sx={{ display: "block" }}>
+            {/* <ListItem disablePadding sx={{ display: "block" }}>
               <Link href="/finance">
                 <ListItemButton
                   sx={{
@@ -214,14 +213,13 @@ const Drawer = (props) => {
                   />
                 </ListItemButton>
               </Link>
-            </ListItem>{" "}
+            </ListItem>{" "} */}
             <ListItem disablePadding sx={{ display: "block" }}>
               <Link href="/eventsSetting">
                 <ListItemButton
                   sx={{
                     minHeight: 48,
                     color: "black",
-
                     justifyContent: open ? "initial" : "center",
                     px: 2.5,
                   }}
@@ -232,7 +230,6 @@ const Drawer = (props) => {
                       minWidth: 0,
                       mr: open ? 0 : "auto",
                       color: colors.main,
-
                       justifyContent: "center",
                     }}
                   >
@@ -264,7 +261,6 @@ const Drawer = (props) => {
                       minWidth: 0,
                       mr: open ? 0 : "auto",
                       color: colors.main,
-
                       justifyContent: "center",
                     }}
                   >
@@ -296,7 +292,6 @@ const Drawer = (props) => {
                       minWidth: 0,
                       mr: open ? 0 : "auto",
                       color: colors.main,
-
                       justifyContent: "center",
                     }}
                   >
