@@ -5,6 +5,6 @@ export const colors = {
 };
 
 export const api = {
-  main: "https://api.inpointconnect.ir//",
+  main: "https://api.inpointconnect.ir/",
   socket: "https://socket.inpointconnect.ir/",
 };

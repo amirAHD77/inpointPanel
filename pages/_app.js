@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <PersistGate persistor={store.__PERSISTOR} loading={null}>
-        {router.pathname !== "/" ? (
+        {router.pathname !== "/" && router.pathname !== "/login" ? (
           <Layout drawerIsOpen={() => setDrawerIsOpen(!drawerIsOpen)}>
             <Component {...pageProps} />
           </Layout>
