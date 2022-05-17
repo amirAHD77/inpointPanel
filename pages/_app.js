@@ -16,10 +16,6 @@ function MyApp({ Component, pageProps }) {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
   const router = useRouter();
 
-  useEffect(() => {
-    sessionStorage.clear();
-  }, []);
-
   return (
     <Provider store={store}>
       <PersistGate persistor={store.__PERSISTOR} loading={null}>

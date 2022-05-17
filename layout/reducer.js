@@ -1,6 +1,6 @@
 import * as types from "../redux/types";
-
-const reducers = (state = { isSuperAdmin: true }, { type, payload }) => {
+const initialState = { isSuperAdmin: true };
+const reducers = (state = initialState, { type, payload }) => {
   switch (type) {
     case types.LOGIN: {
       console.log("payload", payload);
@@ -12,7 +12,6 @@ const reducers = (state = { isSuperAdmin: true }, { type, payload }) => {
     case types.TOKEN_TIMER_COUNTER: {
       return { ...state, tokenTimer: state.tokenTimer - 1 };
     }
-
     default:
       return state;
   }

@@ -23,26 +23,25 @@ import themes from "../../../utils/themes";
 import { DrawerContainer } from "./index.style";
 import Content from "../content/index";
 import Link from "next/link";
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
     display: "flex",
-    backgroundColor: "#107e7f !important",
-    color: "white",
+    backgroundColor: (props) => props.secondary,
+    borderColor: (props) => props.main,
   },
-}));
-const Drawer = (props) => {
-  const classes = useStyles(); // ❌ called outside of ThemeProvider
+});
 
+const Drawer = (props) => {
   const [timer, setTimer] = useState(100);
   const time = useSelector((it) => it.tokenTimer);
   const [open, setOpen] = useState(false);
-  const isSuperAdmin = useSelector((store) => store);
+  const isSuperAdmin = useSelector((store) => store.layout.isSuperAdmin);
   const dispatch = useDispatch();
   const drawerWidth = 200;
-  const [colors, setColors] = useState(themes().admin);
+  const [colors, setColors] = useState(themes.colors.admin);
+  const classes = useStyles(colors); // ❌ called outside of ThemeProvider
   useEffect(() => {
-    console.log(isSuperAdmin);
-    setColors(isSuperAdmin ? themes().super : themes().admin);
+    setColors(isSuperAdmin ? themes.colors.super : themes.colors.admin);
   }, [isSuperAdmin]);
   const openedMixin = (theme) => ({
     width: drawerWidth,
@@ -94,7 +93,6 @@ const Drawer = (props) => {
   const drawerHandler = () => {
     setOpen(!open);
   };
-  console.log(colors);
   return (
     <DrawerContainer>
       <Box sx={{ display: "flex" }}>
@@ -109,14 +107,16 @@ const Drawer = (props) => {
             <IconButton
               onClick={drawerHandler}
               sx={{
-                color: "white",
+                color: colors.main,
                 mx: !open ? "auto" : 0,
               }}
             >
               {open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
             </IconButton>
           </DrawerHeader>
-          <Divider />
+          <Divider
+            sx={{ borderBottom: "3px solid", borderColor: colors.main }}
+          />
 
           <List>
             <ListItem disablePadding sx={{ display: "block" }}>
@@ -124,7 +124,7 @@ const Drawer = (props) => {
                 <ListItemButton
                   sx={{
                     minHeight: 48,
-                    color: "white",
+                    color: "black",
                     justifyContent: open ? "initial" : "center",
                     px: 2.5,
                   }}
@@ -134,7 +134,7 @@ const Drawer = (props) => {
                     sx={{
                       minWidth: 0,
 
-                      color: "white",
+                      color: colors.main,
                       justifyContent: "center",
                     }}
                   >
@@ -158,14 +158,14 @@ const Drawer = (props) => {
                     minHeight: 48,
                     justifyContent: open ? "initial" : "center",
                     px: 2.5,
-                    color: "white",
+                    color: "black",
                   }}
                 >
                   <ListItemIcon
                     sx={{
                       minWidth: 0,
                       mr: open ? 0 : "auto",
-                      color: "white",
+                      color: colors.main,
 
                       justifyContent: "center",
                     }}
@@ -190,14 +190,14 @@ const Drawer = (props) => {
                     minHeight: 48,
                     justifyContent: open ? "initial" : "center",
                     px: 2.5,
-                    color: "white",
+                    color: "black",
                   }}
                 >
                   <ListItemIcon
                     sx={{
                       minWidth: 0,
                       mr: open ? 0 : "auto",
-                      color: "white",
+                      color: colors.main,
 
                       justifyContent: "center",
                     }}
@@ -220,7 +220,7 @@ const Drawer = (props) => {
                 <ListItemButton
                   sx={{
                     minHeight: 48,
-                    color: "white",
+                    color: "black",
 
                     justifyContent: open ? "initial" : "center",
                     px: 2.5,
@@ -231,7 +231,7 @@ const Drawer = (props) => {
                     sx={{
                       minWidth: 0,
                       mr: open ? 0 : "auto",
-                      color: "white",
+                      color: colors.main,
 
                       justifyContent: "center",
                     }}
@@ -256,14 +256,14 @@ const Drawer = (props) => {
                     minHeight: 48,
                     justifyContent: open ? "initial" : "center",
                     px: 2.5,
-                    color: "white",
+                    color: "black",
                   }}
                 >
                   <ListItemIcon
                     sx={{
                       minWidth: 0,
                       mr: open ? 0 : "auto",
-                      color: "white",
+                      color: colors.main,
 
                       justifyContent: "center",
                     }}
@@ -288,14 +288,14 @@ const Drawer = (props) => {
                     minHeight: 48,
                     justifyContent: open ? "initial" : "center",
                     px: 2.5,
-                    color: "white",
+                    color: "black",
                   }}
                 >
                   <ListItemIcon
                     sx={{
                       minWidth: 0,
                       mr: open ? 0 : "auto",
-                      color: "white",
+                      color: colors.main,
 
                       justifyContent: "center",
                     }}

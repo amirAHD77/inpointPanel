@@ -5,7 +5,7 @@ export const DrawerContainer = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background-color: #eee;
+  background-color: #f0f0f0;
   .container {
     display: flex;
     flex-direction: column;

@@ -10,8 +10,8 @@ const Layout = (props) => {
   const [colors, setColors] = useState();
 
   useEffect(() => {
-    const temp = Themes();
-    setColors(temp);
+    // const temp = Themes();
+    // setColors(temp);
   }, []);
 
   return (
