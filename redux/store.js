@@ -3,7 +3,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunkMiddleware from "redux-thunk";
 
-import layout from "../layout/reducer";
+import user from "../components/login/reducer";
 
 export const makeStore = () => {
   let store;
@@ -14,7 +14,7 @@ export const makeStore = () => {
   };
 
   store = createStore(
-    persistReducer(persistConfig, combineReducers({ layout: layout })),
+    persistReducer(persistConfig, combineReducers({ user: user })),
     undefined,
     applyMiddleware(thunkMiddleware)
   );

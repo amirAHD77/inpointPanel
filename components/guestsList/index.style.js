@@ -37,7 +37,7 @@ const GuestsListContainer = styled.div`
   }
 
   button {
-    background-color: orange;
+    background-color: ${(props) => props.colors.main};
     border: 0;
     border-radius: 8px;
     width: 300px;

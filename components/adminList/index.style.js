@@ -17,7 +17,7 @@ const AdminListContainer = styled.div`
   }
 
   .headerTitle {
-    color: orange;
+    color: ${(props) => props.colors.main};
     text-align: center;
   }
 

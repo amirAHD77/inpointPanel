@@ -36,7 +36,11 @@ const Drawer = (props) => {
   const [timer, setTimer] = useState(100);
   const time = useSelector((it) => it.tokenTimer);
   const [open, setOpen] = useState(false);
-  const isSuperAdmin = useSelector((store) => store.layout.isSuperAdmin);
+  const isSuperAdmin = useSelector((store) => {
+    return store.user.user.roles
+      ? store.user.user.roles[0].name === "ADMIN"
+      : false;
+  });
   const dispatch = useDispatch();
   const drawerWidth = 200;
   const [colors, setColors] = useState(themes.colors.admin);
@@ -120,70 +124,74 @@ const Drawer = (props) => {
           />
 
           <List>
-            <ListItem disablePadding sx={{ display: "block" }}>
-              <Link href="/addAdmin">
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    color: "black",
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                    fontFamily: ".93rem",
-                  }}
-                >
-                  <ListItemIcon
-                    color="white"
-                    sx={{
-                      minWidth: 0,
-                      color: colors.main,
-                      justifyContent: "center",
-                    }}
-                  >
-                    <AccountCircle />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={"اکانت ادمین"}
-                    sx={{
-                      opacity: open ? 1 : 0,
-                      textAlign: "right",
-                      mr: open ? 2 : 0,
-                    }}
-                  />
-                </ListItemButton>
-              </Link>
-            </ListItem>
-            <ListItem disablePadding sx={{ display: "block" }}>
-              <Link href="/adminList">
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                    color: "black",
-                    fontFamily: ".93rem",
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 0 : "auto",
-                      color: colors.main,
-                      justifyContent: "center",
-                    }}
-                  >
-                    <ViewList />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={"مدیریت پنل‌های فعال"}
-                    sx={{
-                      opacity: open ? 1 : 0,
-                      textAlign: "right",
-                      mr: open ? 2 : 0,
-                    }}
-                  />
-                </ListItemButton>
-              </Link>
-            </ListItem>
+            {isSuperAdmin && (
+              <>
+                <ListItem disablePadding sx={{ display: "block" }}>
+                  <Link href="/addAdmin">
+                    <ListItemButton
+                      sx={{
+                        minHeight: 48,
+                        color: "black",
+                        justifyContent: open ? "initial" : "center",
+                        px: 2.5,
+                        fontFamily: ".93rem",
+                      }}
+                    >
+                      <ListItemIcon
+                        color="white"
+                        sx={{
+                          minWidth: 0,
+                          color: colors.main,
+                          justifyContent: "center",
+                        }}
+                      >
+                        <AccountCircle />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={"اکانت ادمین"}
+                        sx={{
+                          opacity: open ? 1 : 0,
+                          textAlign: "right",
+                          mr: open ? 2 : 0,
+                        }}
+                      />
+                    </ListItemButton>
+                  </Link>
+                </ListItem>
+                <ListItem disablePadding sx={{ display: "block" }}>
+                  <Link href="/adminList">
+                    <ListItemButton
+                      sx={{
+                        minHeight: 48,
+                        justifyContent: open ? "initial" : "center",
+                        px: 2.5,
+                        color: "black",
+                        fontFamily: ".93rem",
+                      }}
+                    >
+                      <ListItemIcon
+                        sx={{
+                          minWidth: 0,
+                          mr: open ? 0 : "auto",
+                          color: colors.main,
+                          justifyContent: "center",
+                        }}
+                      >
+                        <ViewList />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={"مدیریت پنل‌های فعال"}
+                        sx={{
+                          opacity: open ? 1 : 0,
+                          textAlign: "right",
+                          mr: open ? 2 : 0,
+                        }}
+                      />
+                    </ListItemButton>
+                  </Link>
+                </ListItem>
+              </>
+            )}
             {/* <ListItem disablePadding sx={{ display: "block" }}>
               <Link href="/finance">
                 <ListItemButton
@@ -216,103 +224,107 @@ const Drawer = (props) => {
                 </ListItemButton>
               </Link>
             </ListItem>{" "} */}
-            <ListItem disablePadding sx={{ display: "block" }}>
-              <Link href="/eventsSetting">
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    color: "black",
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                    fontFamily: ".93rem",
-                  }}
-                >
-                  <ListItemIcon
-                    color="white"
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 0 : "auto",
-                      color: colors.main,
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Setting />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={"تنظیمات کلی رویداد"}
-                    sx={{
-                      opacity: open ? 1 : 0,
-                      textAlign: "right",
-                      mr: open ? 2 : 0,
-                    }}
-                  />
-                </ListItemButton>
-              </Link>
-            </ListItem>
-            <ListItem disablePadding sx={{ display: "block" }}>
-              <Link href="/guestsList">
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                    color: "black",
-                    fontFamily: ".93rem",
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 0 : "auto",
-                      color: colors.main,
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Group />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={"اطلاعات کاربران مهمان"}
-                    sx={{
-                      opacity: open ? 1 : 0,
-                      textAlign: "right",
-                      mr: open ? 2 : 0,
-                    }}
-                  />
-                </ListItemButton>
-              </Link>
-            </ListItem>{" "}
-            <ListItem disablePadding sx={{ display: "block" }}>
-              <Link href="/transactions">
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                    color: "black",
-                    fontFamily: ".93rem",
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 0 : "auto",
-                      color: colors.main,
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Monetization />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={"عملیات مالی"}
-                    sx={{
-                      opacity: open ? 1 : 0,
-                      textAlign: "right",
-                      mr: open ? 2 : 0,
-                    }}
-                  />
-                </ListItemButton>
-              </Link>
-            </ListItem>
+            {!isSuperAdmin && (
+              <>
+                <ListItem disablePadding sx={{ display: "block" }}>
+                  <Link href="/eventsSetting">
+                    <ListItemButton
+                      sx={{
+                        minHeight: 48,
+                        color: "black",
+                        justifyContent: open ? "initial" : "center",
+                        px: 2.5,
+                        fontFamily: ".93rem",
+                      }}
+                    >
+                      <ListItemIcon
+                        color="white"
+                        sx={{
+                          minWidth: 0,
+                          mr: open ? 0 : "auto",
+                          color: colors.main,
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Setting />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={"تنظیمات کلی رویداد"}
+                        sx={{
+                          opacity: open ? 1 : 0,
+                          textAlign: "right",
+                          mr: open ? 2 : 0,
+                        }}
+                      />
+                    </ListItemButton>
+                  </Link>
+                </ListItem>
+                <ListItem disablePadding sx={{ display: "block" }}>
+                  <Link href="/guestsList">
+                    <ListItemButton
+                      sx={{
+                        minHeight: 48,
+                        justifyContent: open ? "initial" : "center",
+                        px: 2.5,
+                        color: "black",
+                        fontFamily: ".93rem",
+                      }}
+                    >
+                      <ListItemIcon
+                        sx={{
+                          minWidth: 0,
+                          mr: open ? 0 : "auto",
+                          color: colors.main,
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Group />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={"اطلاعات کاربران مهمان"}
+                        sx={{
+                          opacity: open ? 1 : 0,
+                          textAlign: "right",
+                          mr: open ? 2 : 0,
+                        }}
+                      />
+                    </ListItemButton>
+                  </Link>
+                </ListItem>{" "}
+                <ListItem disablePadding sx={{ display: "block" }}>
+                  <Link href="/transactions">
+                    <ListItemButton
+                      sx={{
+                        minHeight: 48,
+                        justifyContent: open ? "initial" : "center",
+                        px: 2.5,
+                        color: "black",
+                        fontFamily: ".93rem",
+                      }}
+                    >
+                      <ListItemIcon
+                        sx={{
+                          minWidth: 0,
+                          mr: open ? 0 : "auto",
+                          color: colors.main,
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Monetization />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={"عملیات مالی"}
+                        sx={{
+                          opacity: open ? 1 : 0,
+                          textAlign: "right",
+                          mr: open ? 2 : 0,
+                        }}
+                      />
+                    </ListItemButton>
+                  </Link>
+                </ListItem>
+              </>
+            )}
           </List>
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>

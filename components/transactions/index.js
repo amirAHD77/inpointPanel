@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useFormik } from "formik";
 
 import TransactionsContainer from "./index.style";
+import Themes from "../../utils/themes";
 
 const Transactions = () => {
   const formik = useFormik({
@@ -13,7 +14,7 @@ const Transactions = () => {
     },
   });
   return (
-    <TransactionsContainer>
+    <TransactionsContainer colors={Themes.colors.admin}>
       <form onSubmit={formik.handleSubmit}>
         <label htmlFor="amount">مبلغ پرداختی :</label>
         <input

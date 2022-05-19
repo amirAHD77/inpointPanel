@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import AddAdminContainer from "../../components/addAdmin/index.style";
-
+import Themes from "../../utils/themes";
 const AddAdmin = (values) => {
   const [loading, setLoading] = useState();
   const add = async (value) => {
@@ -33,7 +33,7 @@ const AddAdmin = (values) => {
     },
   });
   return (
-    <AddAdminContainer>
+    <AddAdminContainer colors={Themes.colors.super}>
       <form onSubmit={formik.handleSubmit}>
         <label htmlFor="name">عنوان کاربر :</label>
         <input

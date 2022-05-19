@@ -4,6 +4,7 @@ import * as Yup from "yup";
 
 import AdminListContainer from "./index.style";
 import { Table } from "react-bootstrap";
+import Themes from "../../utils/themes";
 
 const AdminList = () => {
   const formik = useFormik({
@@ -17,7 +18,7 @@ const AdminList = () => {
     },
   });
   return (
-    <AdminListContainer>
+    <AdminListContainer colors={Themes.colors.super}>
       <form onSubmit={formik.handleSubmit}>
         <h5 className="headerTitle">مدیریت پنل های فعال</h5>
         <Table
