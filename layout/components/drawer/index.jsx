@@ -291,7 +291,7 @@ const Drawer = (props) => {
                     </ListItemButton>
                   </Link>
                 </ListItem>{" "}
-                <ListItem disablePadding sx={{ display: "block" }}>
+                {/* <ListItem disablePadding sx={{ display: "block" }}>
                   <Link href="/transactions">
                     <ListItemButton
                       sx={{
@@ -322,7 +322,7 @@ const Drawer = (props) => {
                       />
                     </ListItemButton>
                   </Link>
-                </ListItem>
+                </ListItem> */}
               </>
             )}
           </List>

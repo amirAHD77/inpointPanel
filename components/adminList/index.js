@@ -5,8 +5,16 @@ import * as Yup from "yup";
 import AdminListContainer from "./index.style";
 import { Table } from "react-bootstrap";
 import Themes from "../../utils/themes";
+import Axios from "../../utils/axios";
 
 const AdminList = () => {
+  const [list, setList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const getList = async () => {
+    const rest = await Axios.get("v1/class-owner/all");
+    setList(rest.data.data);
+    setLoading(false);
+  };
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -17,6 +25,9 @@ const AdminList = () => {
       alert(JSON.stringify(values, null, 2));
     },
   });
+  useEffect(() => {
+    getList();
+  }, []);
   return (
     <AdminListContainer colors={Themes.colors.super}>
       <form onSubmit={formik.handleSubmit}>
@@ -37,123 +48,23 @@ const AdminList = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
-              <td>
-                <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
-                  <div className="btn delete">حذف</div>
-                  <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
-              <td>
-                <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
-                  <div className="btn delete">حذف</div>
-                  <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
-              <td>
-                <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
-                  <div className="btn delete">حذف</div>
-                  <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
-              <td>
-                <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
-                  <div className="btn delete">حذف</div>
-                  <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
-              <td>
-                <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
-                  <div className="btn delete">حذف</div>
-                  <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
-              <td>
-                <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
-                  <div className="btn delete">حذف</div>
-                  <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
-              <td>
-                <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
-                  <div className="btn delete">حذف</div>
-                  <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
-              <td>
-                <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
-                  <div className="btn delete">حذف</div>
-                  <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
-              <td>
-                <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
-                  <div className="btn delete">حذف</div>
-                  <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
-                </div>
-              </td>
-            </tr>
+            {list.map((it) => {
+              return (
+                <tr key={it.id}>
+                  <td>{it.id}</td>
+                  <td className="name">{it.name}</td>
+                  {/* <td>{it.credit}</td> */}
+                  <td>
+                    <div className="functionsContainer">
+                      <div className="btn disable">غیر فعال سازی</div>
+                      <div className="btn delete">حذف</div>
+                      <div className="btn edit">ویرایش اطلاعات</div>
+                      <div className="btn logs">لاگ پرداخت</div>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </Table>
       </form>

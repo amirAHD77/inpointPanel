@@ -1,24 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import AddAdminContainer from "../../components/addAdmin/index.style";
 import Themes from "../../utils/themes";
+import Alert from "../utils/Alert";
+import Axios from "../../utils/axios";
 const AddAdmin = (values) => {
   const [loading, setLoading] = useState();
-  const add = async (value) => {
+  const [show, setShow] = useState(false);
+  const add = async (values) => {
     try {
       setLoading(true);
-      const res = await axios.post(process.env.MAIN_PATH + "v1/class-owner", {
-        name: values.name,
+      console.log("aasdasd", {
         user_name: values.userName,
         password: values.password,
+      });
+      const register = await Axios.post("v1/auth/register", {
+        user_name: values.userName,
+        password: values.password,
+      });
+      const userName = register.data.data.user_name;
+      const res = await Axios.post("v1/class-owner", {
+        name: values.name,
+        user_name: userName,
         theme_code: null,
         logo: null,
       });
+      setShow(true);
+
+      formik.setFieldValue("name", "");
+      formik.setFieldValue("userName", "");
+      formik.setFieldValue("password", "");
       setLoading(false);
     } catch (e) {
       console.error(e);
+      setLoading(false);
     }
   };
   const formik = useFormik({
@@ -28,12 +44,19 @@ const AddAdmin = (values) => {
       password: "",
     },
     onSubmit: (values) => {
+      console.log(values);
       // alert(JSON.stringify(values, null, 2));
       add(values);
     },
   });
   return (
     <AddAdminContainer colors={Themes.colors.super}>
+      <Alert
+        text={"با موفقیت ایجاد شد"}
+        title={"ثبت موفق"}
+        show={show}
+        setShow={setShow}
+      />
       <form onSubmit={formik.handleSubmit}>
         <label htmlFor="name">عنوان کاربر :</label>
         <input
