@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Table } from "react-bootstrap";
 
 import AdminListContainer from "./index.style";
 import { Table } from "react-bootstrap";

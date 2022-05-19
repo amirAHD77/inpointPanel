@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const AdminListContainer = styled.div`
+const EventSettingContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -20,7 +20,7 @@ const AdminListContainer = styled.div`
   }
 
   .headerTitle {
-    color: ${(props) => props.colors.main};
+    color: orange;
     text-align: center;
   }
 
@@ -87,4 +87,4 @@ const AdminListContainer = styled.div`
   }
 `;
 
-export default AdminListContainer;
+export default EventSettingContainer;
