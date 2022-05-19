@@ -4,16 +4,18 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/router";
 
-import LoginContainer from "./login.style";
+import LoginContainer from "./index.style";
 import { colors } from "../../utils/config";
 import Axios from "../../utils/axios";
+import { useDispatch } from "react-redux";
+import { loginAction } from "./action";
 
 const Login = (props) => {
   const [wrongPass, setWrongPass] = useState(false);
   const [loading, setLoading] = useState(false);
   const [test, setTest] = useState();
   const router = useRouter();
-
+  const dispatch = useDispatch();
   const checkUser = async (val) => {
     try {
       setLoading(true);
@@ -28,22 +30,16 @@ const Login = (props) => {
           Authorization: `Bearer ${res.data.data.access_token}`,
         },
       });
+      dispatch(loginAction(res2.data.data));
+
       window.sessionStorage.setItem("role", res2.data.data.roles[0].name);
-      if (res2.data.data.roles[0].name === "TEACHER") {
-        const res3 = await Axios.get("v1/class/teacher", {
-          headers: {
-            Authorization: `Bearer ${res.data.data.access_token}`,
-          },
-        });
-        router.push(`/class/${res3.data.data[res3.data.data.length - 1].id}`);
-      } else if (
-        props.history[props.history.length - 2] &&
-        props.history[props.history.length - 2].includes("class/")
-      ) {
-        router.push(props.history[props.history.length - 2]);
+      if (res2.data.data.roles[0].name === "ADMIN") {
+        router.push(`/addAdmin`);
+      } else if (res2.data.data.roles[0].name === "OWNER") {
+        router.push(`/eventSetting`);
       } else {
-        alert("لطفا از طریق لینک کلاس وارد شوید");
-        // router.push("/class");
+        alert("شما به دسترسی لازم برای این بخش را ندارید");
+        return;
       }
     } catch (err) {
       setWrongPass(true);

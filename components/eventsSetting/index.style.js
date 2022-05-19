@@ -17,6 +17,30 @@ const EventSettingContainer = styled.div`
     overflow: scroll;
     max-height: 90vh;
     overflow-x: hidden;
+    min-width: 600px;
+  }
+
+  .headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .headerButton {
+    width: 120px;
+    text-align: center;
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+  }
+
+  .headerButton:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 3px rgba(69, 94, 100, 0.12);
   }
 
   .headerTitle {
