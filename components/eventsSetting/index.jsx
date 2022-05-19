@@ -1,27 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Table } from "react-bootstrap";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Table } from "react-bootstrap";
 
-import AdminListContainer from "./index.style";
-import { Table } from "react-bootstrap";
-import Themes from "../../utils/themes";
+import EventSettingContainer from "./index.style";
 
-const AdminList = () => {
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      userName: "",
-      password: "",
-    },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
+const EventSetting = () => {
   return (
-    <AdminListContainer colors={Themes.colors.super}>
-      <form onSubmit={formik.handleSubmit}>
-        <h5 className="headerTitle">مدیریت پنل های فعال</h5>
+    <EventSettingContainer>
+      <form>
+        <h5 className="headerTitle">فهرست رویدادها</h5>
         <Table
           bordered={true}
           className="table"
@@ -32,8 +20,7 @@ const AdminList = () => {
           <thead>
             <tr>
               <th>#</th>
-              <th>پنل های فعال</th>
-              <th>مبلغ اعتبار</th>
+              <th>رویدادها</th>
               <th></th>
             </tr>
           </thead>
@@ -41,450 +28,358 @@ const AdminList = () => {
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td>1</td>
               <td className="name"> آنلاین غرب</td>
-              <td className="price"> 2,500,000 ریال</td>
               <td>
                 <div className="functionsContainer">
-                  <div className="btn disable">غیر فعال سازی</div>
                   <div className="btn delete">حذف</div>
                   <div className="btn edit">ویرایش اطلاعات</div>
-                  <div className="btn logs">لاگ پرداخت</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td className="name"> آنلاین غرب</td>
+              <td>
+                <div className="functionsContainer">
+                  <div className="btn delete">حذف</div>
+                  <div className="btn edit">ویرایش اطلاعات</div>
                 </div>
               </td>
             </tr>
           </tbody>
         </Table>
       </form>
-    </AdminListContainer>
+    </EventSettingContainer>
   );
 };
 
-export default AdminList;
+export default EventSetting;
