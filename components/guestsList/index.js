@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import { Form } from "react-bootstrap";
 
 import GuestsListContainer from "./index.style";
+import Themes from "../../utils/themes";
 
 const GuestsList = () => {
   const formik = useFormik({
@@ -14,7 +15,7 @@ const GuestsList = () => {
     },
   });
   return (
-    <GuestsListContainer>
+    <GuestsListContainer colors={Themes.colors.admin}>
       <form onSubmit={formik.handleSubmit}>
         <label htmlFor="amount">انتخاب رویداد :</label>
 
