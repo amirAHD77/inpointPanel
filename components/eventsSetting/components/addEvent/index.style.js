@@ -27,6 +27,21 @@ const AddEventContainer = styled.div`
     margin-bottom: 16px;
   }
 
+  .miniInputs {
+    margin-top: 16px;
+  }
+
+  .miniInput {
+    min-width: 100px;
+    background-color: #e1e1e1;
+    height: 40px;
+    border-radius: 8px;
+    padding: 4px 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin: 0 8px;
+  }
+
   .importFile {
     margin-right: 16px;
   }
@@ -44,6 +59,7 @@ const AddEventContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: row;
+    margin-top: 16px;
   }
 
   .cancelBtn {

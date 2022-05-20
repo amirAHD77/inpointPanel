@@ -36,7 +36,7 @@ const Login = (props) => {
       if (res2.data.data.roles[0].name === "ADMIN") {
         router.push(`/addAdmin`);
       } else if (res2.data.data.roles[0].name === "OWNER") {
-        router.push(`/eventSetting`);
+        router.push(`/eventsSetting`);
       } else {
         alert("شما به دسترسی لازم برای این بخش را ندارید");
         return;
