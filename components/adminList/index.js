@@ -4,7 +4,6 @@ import * as Yup from "yup";
 import { Table } from "react-bootstrap";
 
 import AdminListContainer from "./index.style";
-import { Table } from "react-bootstrap";
 import Themes from "../../utils/themes";
 import Axios from "../../utils/axios";
 

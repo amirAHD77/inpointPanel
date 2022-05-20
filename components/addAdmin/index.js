@@ -5,7 +5,7 @@ import AddAdminContainer from "../../components/addAdmin/index.style";
 import Themes from "../../utils/themes";
 import Alert from "../utils/Alert";
 import Axios from "../../utils/axios";
-const AddAdmin = (values) => {
+const AddAdmin = (props) => {
   const [loading, setLoading] = useState();
   const [show, setShow] = useState(false);
   const add = async (values) => {
@@ -15,16 +15,16 @@ const AddAdmin = (values) => {
         user_name: values.userName,
         password: values.password,
       });
-      const register = await Axios.post("v1/auth/register", {
-        user_name: values.userName,
-        password: values.password,
-      });
-      const userName = register.data.data.user_name;
+      // const register = await Axios.post("v1/auth/register", {
+      //   user_name: values.userName,
+      //   password: values.password,
+      // });
+      // const userName = register.data.data.user_name;
       const res = await Axios.post("v1/class-owner", {
         name: values.name,
-        user_name: userName,
-        theme_code: null,
-        logo: null,
+        user_name: values.userName,
+        theme_code: "",
+        logo: "",
       });
       setShow(true);
 

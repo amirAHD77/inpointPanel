@@ -2,12 +2,26 @@ import React, { useState } from "react";
 import { Table } from "react-bootstrap";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-
+import axios from "../../utils/axios";
 import EventSettingContainer from "./index.style";
 import AddEvent from "./components/addEvent/index";
 
 const EventSetting = () => {
   const [pageStatus, setPageStatus] = useState("list");
+  const [loading, setLoading] = useState(false);
+  const [list, setList] = useState([]);
+  const getList = async () => {
+    try {
+      const res = await axios.get("/v1/class/owner");
+      setList(res.data.data);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    getList();
+  }, []);
 
   return (
     <EventSettingContainer>

@@ -10,7 +10,7 @@ const AddEvent = (props) => {
   const add = async (values) => {
     try {
       setLoading(true);
-      const res = await axios.post(process.env.MAIN_PATH + "v1/class-owner", {
+      const res = await axios.post(process.env.MAIN_PATH + "v1/class/import", {
         name: values.name,
         user_name: values.userName,
         password: values.password,
