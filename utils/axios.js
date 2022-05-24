@@ -8,7 +8,7 @@ if (typeof window !== "undefined") {
     ? sessionStorage.getItem("token")
     : null;
 }
-
+console.log(token);
 const Axios = axios.create({
   baseURL: api.main,
   timeout: 6000,

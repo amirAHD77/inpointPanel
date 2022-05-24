@@ -66,7 +66,7 @@ const AddAdmin = (props) => {
           onChange={formik.handleChange}
           value={formik.values.name}
         />
-        <label htmlFor="userName"> نام کاربری :</label>
+        <label htmlFor="userName"> نام کاربری(و رمز عبور) :</label>
         <input
           id="userName"
           name="userName"
@@ -79,6 +79,7 @@ const AddAdmin = (props) => {
           id="password"
           name="password"
           type="text"
+          disabled="true"
           onChange={formik.handleChange}
           value={formik.values.password}
         />

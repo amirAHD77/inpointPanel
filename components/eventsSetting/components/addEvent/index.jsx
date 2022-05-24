@@ -9,51 +9,111 @@ import { Form } from "react-bootstrap";
 const AddEvent = (props) => {
   const [loading, setLoading] = useState();
   const add = async (values) => {
+    let token;
+    if (typeof window !== "undefined") {
+      token = sessionStorage.getItem("token")
+        ? sessionStorage.getItem("token")
+        : null;
+    }
     try {
       setLoading(true);
       const students = [];
-      const student1 = await Axios.post(process.env.MAIN_PATH + "v1/students", {
-        user_name: values.stUserName,
-        first_name: values.stName,
-        last_name: values.stFamily,
-        phone_number: values.stPhoneNum,
-      });
+      const student1 = await Axios.post(
+        process.env.MAIN_PATH + "v1/students",
+        {
+          user_name: values.stUserName,
+          first_name: values.stName,
+          last_name: values.stFamily,
+          phone_number: values.stPhoneNum,
+        },
+        {
+          headers: {
+            // Accept: "application/vnd.GitHub.v3+json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       students.push(student1.data.id);
-      const student2 = await Axios.post(process.env.MAIN_PATH + "v1/students", {
-        user_name: values.stUserName2,
-        first_name: values.stName2,
-        last_name: values.stFamily2,
-        phone_number: values.stPhoneNum2,
-      });
+      const student2 = await Axios.post(
+        process.env.MAIN_PATH + "v1/students",
+        {
+          user_name: values.stUserName2,
+          first_name: values.stName2,
+          last_name: values.stFamily2,
+          phone_number: values.stPhoneNum2,
+        },
+        {
+          headers: {
+            // Accept: "application/vnd.GitHub.v3+json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       students.push(student2.data.id);
-      const student3 = await Axios.post(process.env.MAIN_PATH + "v1/students", {
-        user_name: values.stUserName3,
-        first_name: values.stName3,
-        last_name: values.stFamily3,
-        phone_number: values.stPhoneNum3,
-      });
+      const student3 = await Axios.post(
+        process.env.MAIN_PATH + "v1/students",
+        {
+          user_name: values.stUserName3,
+          first_name: values.stName3,
+          last_name: values.stFamily3,
+          phone_number: values.stPhoneNum3,
+        },
+        {
+          headers: {
+            // Accept: "application/vnd.GitHub.v3+json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       students.push(student3.data.id);
-      const student4 = await Axios.post(process.env.MAIN_PATH + "v1/students", {
-        user_name: values.stUserName4,
-        first_name: values.stName4,
-        last_name: values.stFamily4,
-        phone_number: values.stPhoneNum4,
-      });
+      const student4 = await Axios.post(
+        process.env.MAIN_PATH + "v1/students",
+        {
+          user_name: values.stUserName4,
+          first_name: values.stName4,
+          last_name: values.stFamily4,
+          phone_number: values.stPhoneNum4,
+        },
+        {
+          headers: {
+            // Accept: "application/vnd.GitHub.v3+json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       students.push(student4.data.id);
 
-      const teacher = await Axios.post(process.env.MAIN_PATH + "v1/teacher", {
-        user_name: values.teacherUserName,
-        first_name: values.teacherName,
-        last_name: values.teacherFamily,
-      });
+      const teacher = await Axios.post(
+        process.env.MAIN_PATH + "v1/teacher",
+        {
+          user_name: values.teacherUserName,
+          first_name: values.teacherName,
+          last_name: values.teacherFamily,
+        },
+        {
+          headers: {
+            // Accept: "application/vnd.GitHub.v3+json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       console.log("teacher :>> ", teacher);
 
-      const addClass = await Axios.post(process.env.MAIN_PATH + "v1/class", {
-        name: values.name,
-        login_type: values.type,
-        teacher_id: teacher.data.data.id,
-        student_id: students,
-      });
+      const addClass = await Axios.post(
+        process.env.MAIN_PATH + "v1/class",
+        {
+          name: values.name,
+          login_type: values.type,
+          teacher_id: teacher.data.data.id,
+          student_id: students,
+        },
+        {
+          headers: {
+            // Accept: "application/vnd.GitHub.v3+json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       console.log("addClass :>> ", addClass);
     } catch (e) {
       console.error(e);
