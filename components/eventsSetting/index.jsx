@@ -31,8 +31,8 @@ const EventSetting = () => {
   };
 
   useEffect(() => {
-    getList();
-  }, []);
+    if (pageStatus === "list") getList();
+  }, [pageStatus]);
 
   return (
     <EventSettingContainer>

@@ -8,6 +8,7 @@ import { Form } from "react-bootstrap";
 
 const AddEvent = (props) => {
   const [loading, setLoading] = useState();
+  const [classType, setClassType] = useState("none");
   const add = async (values) => {
     let token;
     if (typeof window !== "undefined") {
@@ -18,70 +19,72 @@ const AddEvent = (props) => {
     try {
       setLoading(true);
       const students = [];
-      const student1 = await Axios.post(
-        process.env.MAIN_PATH + "v1/students",
-        {
-          user_name: values.stUserName,
-          first_name: values.stName,
-          last_name: values.stFamily,
-          phone_number: values.stPhoneNum,
-        },
-        {
-          headers: {
-            // Accept: "application/vnd.GitHub.v3+json",
-            Authorization: `Bearer ${token}`,
+      if (classType === "PRIVATE") {
+        const student1 = await Axios.post(
+          process.env.MAIN_PATH + "v1/students",
+          {
+            user_name: values.stUserName,
+            first_name: values.stName,
+            last_name: values.stFamily,
+            phone_number: values.stPhoneNum,
           },
-        }
-      );
-      students.push(student1.data.id);
-      const student2 = await Axios.post(
-        process.env.MAIN_PATH + "v1/students",
-        {
-          user_name: values.stUserName2,
-          first_name: values.stName2,
-          last_name: values.stFamily2,
-          phone_number: values.stPhoneNum2,
-        },
-        {
-          headers: {
-            // Accept: "application/vnd.GitHub.v3+json",
-            Authorization: `Bearer ${token}`,
+          {
+            headers: {
+              // Accept: "application/vnd.GitHub.v3+json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        students.push(student1.data.id);
+        const student2 = await Axios.post(
+          process.env.MAIN_PATH + "v1/students",
+          {
+            user_name: values.stUserName2,
+            first_name: values.stName2,
+            last_name: values.stFamily2,
+            phone_number: values.stPhoneNum2,
           },
-        }
-      );
-      students.push(student2.data.id);
-      const student3 = await Axios.post(
-        process.env.MAIN_PATH + "v1/students",
-        {
-          user_name: values.stUserName3,
-          first_name: values.stName3,
-          last_name: values.stFamily3,
-          phone_number: values.stPhoneNum3,
-        },
-        {
-          headers: {
-            // Accept: "application/vnd.GitHub.v3+json",
-            Authorization: `Bearer ${token}`,
+          {
+            headers: {
+              // Accept: "application/vnd.GitHub.v3+json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        students.push(student2.data.id);
+        const student3 = await Axios.post(
+          process.env.MAIN_PATH + "v1/students",
+          {
+            user_name: values.stUserName3,
+            first_name: values.stName3,
+            last_name: values.stFamily3,
+            phone_number: values.stPhoneNum3,
           },
-        }
-      );
-      students.push(student3.data.id);
-      const student4 = await Axios.post(
-        process.env.MAIN_PATH + "v1/students",
-        {
-          user_name: values.stUserName4,
-          first_name: values.stName4,
-          last_name: values.stFamily4,
-          phone_number: values.stPhoneNum4,
-        },
-        {
-          headers: {
-            // Accept: "application/vnd.GitHub.v3+json",
-            Authorization: `Bearer ${token}`,
+          {
+            headers: {
+              // Accept: "application/vnd.GitHub.v3+json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        students.push(student3.data.id);
+        const student4 = await Axios.post(
+          process.env.MAIN_PATH + "v1/students",
+          {
+            user_name: values.stUserName4,
+            first_name: values.stName4,
+            last_name: values.stFamily4,
+            phone_number: values.stPhoneNum4,
           },
-        }
-      );
-      students.push(student4.data.id);
+          {
+            headers: {
+              // Accept: "application/vnd.GitHub.v3+json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        students.push(student4.data.id);
+      }
 
       const teacher = await Axios.post(
         process.env.MAIN_PATH + "v1/teacher",
@@ -115,6 +118,7 @@ const AddEvent = (props) => {
         }
       );
       console.log("addClass :>> ", addClass);
+      props.setPageStatus("list");
     } catch (e) {
       console.error(e);
     }
@@ -196,7 +200,10 @@ const AddEvent = (props) => {
           id="type"
           name="type"
           aria-label="Default select example"
-          onChange={formik.handleChange}
+          onChange={(e) => {
+            formik.handleChange(e);
+            setClassType(e.target.value);
+          }}
           value={formik.values.type}
           style={{ backgroundImage: "none" }}
         >
@@ -205,131 +212,133 @@ const AddEvent = (props) => {
           <option value="FREE">عمومی</option>
         </Form.Select>
 
-        <div>
-          <label htmlFor="password">کاربران رویداد :</label>
+        {classType === "PRIVATE" && (
+          <div>
+            <label htmlFor="password">کاربران رویداد :</label>
 
-          <div className="miniInputs">
-            <input
-              name="stName"
-              placeholder="نام"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stName}
-            />
-            <input
-              name="stFamily"
-              placeholder="نام خانوادگی"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stFamily}
-            />
-            <input
-              name="stUserName"
-              placeholder="نام کاربری"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stUserName}
-            />
-            <input
-              name="stPhoneNum"
-              placeholder="شماره موبایل"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stPhoneNum}
-            />
-          </div>
+            <div className="miniInputs">
+              <input
+                name="stName"
+                placeholder="نام"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stName}
+              />
+              <input
+                name="stFamily"
+                placeholder="نام خانوادگی"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stFamily}
+              />
+              <input
+                name="stUserName"
+                placeholder="نام کاربری"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stUserName}
+              />
+              <input
+                name="stPhoneNum"
+                placeholder="شماره موبایل"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stPhoneNum}
+              />
+            </div>
 
-          <div className="miniInputs">
-            <input
-              name="stName2"
-              placeholder="نام"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stName2}
-            />
-            <input
-              name="stFamily2"
-              placeholder="نام خانوادگی"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stFamily2}
-            />
-            <input
-              name="stUserName2"
-              placeholder="نام کاربری"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stUserName2}
-            />
-            <input
-              name="stPhoneNum2"
-              placeholder="شماره موبایل"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stPhoneNum2}
-            />
+            <div className="miniInputs">
+              <input
+                name="stName2"
+                placeholder="نام"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stName2}
+              />
+              <input
+                name="stFamily2"
+                placeholder="نام خانوادگی"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stFamily2}
+              />
+              <input
+                name="stUserName2"
+                placeholder="نام کاربری"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stUserName2}
+              />
+              <input
+                name="stPhoneNum2"
+                placeholder="شماره موبایل"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stPhoneNum2}
+              />
+            </div>
+            <div className="miniInputs">
+              <input
+                name="stName3"
+                placeholder="نام"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stName3}
+              />
+              <input
+                name="stFamily3"
+                placeholder="نام خانوادگی"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stFamily3}
+              />
+              <input
+                name="stUserName3"
+                placeholder="نام کاربری"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stUserName3}
+              />
+              <input
+                name="stPhoneNum3"
+                placeholder="شماره موبایل"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stPhoneNum3}
+              />
+            </div>
+            <div className="miniInputs">
+              <input
+                name="stName4"
+                placeholder="نام"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stName4}
+              />
+              <input
+                name="stFamily4"
+                placeholder="نام خانوادگی"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stFamily4}
+              />
+              <input
+                name="stUserName4"
+                placeholder="نام کاربری"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stUserName4}
+              />
+              <input
+                name="stPhoneNum4"
+                placeholder="شماره موبایل"
+                className="miniInput"
+                onChange={formik.handleChange}
+                value={formik.values.stPhoneNum4}
+              />
+            </div>
           </div>
-          <div className="miniInputs">
-            <input
-              name="stName3"
-              placeholder="نام"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stName3}
-            />
-            <input
-              name="stFamily3"
-              placeholder="نام خانوادگی"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stFamily3}
-            />
-            <input
-              name="stUserName3"
-              placeholder="نام کاربری"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stUserName3}
-            />
-            <input
-              name="stPhoneNum3"
-              placeholder="شماره موبایل"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stPhoneNum3}
-            />
-          </div>
-          <div className="miniInputs">
-            <input
-              name="stName4"
-              placeholder="نام"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stName4}
-            />
-            <input
-              name="stFamily4"
-              placeholder="نام خانوادگی"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stFamily4}
-            />
-            <input
-              name="stUserName4"
-              placeholder="نام کاربری"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stUserName4}
-            />
-            <input
-              name="stPhoneNum4"
-              placeholder="شماره موبایل"
-              className="miniInput"
-              onChange={formik.handleChange}
-              value={formik.values.stPhoneNum4}
-            />
-          </div>
-        </div>
+        )}
 
         <div className="buttonsContiner">
           <button type="submit">ایجاد</button>
