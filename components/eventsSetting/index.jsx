@@ -10,11 +10,20 @@ const EventSetting = () => {
   const [pageStatus, setPageStatus] = useState("list");
   const [loading, setLoading] = useState(false);
   const [list, setList] = useState([]);
-
+  const deleteClass = async (id) => {
+    try {
+      const response = await axios.delete(`/v1/class/` + id);
+      getList();
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const getList = async () => {
     try {
       const res = await axios.get("/v1/class/owner");
       setList(res.data.data);
+      console.log(res.data);
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -60,8 +69,13 @@ const EventSetting = () => {
                         <td className="name">{item.name}</td>
                         <td>
                           <div className="functionsContainer">
-                            <div className="btn delete">حذف</div>
-                            <div className="btn edit">ویرایش اطلاعات</div>
+                            <div
+                              className="btn delete"
+                              onClick={() => deleteClass(item.id)}
+                            >
+                              حذف
+                            </div>
+                            {/* <div className="btn edit">ویرایش اطلاعات</div> */}
                           </div>
                         </td>
                       </tr>

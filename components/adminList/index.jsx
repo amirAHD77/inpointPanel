@@ -10,6 +10,15 @@ import Axios from "../../utils/axios";
 const AdminList = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const deleteAdmin = async (id) => {
+    try {
+      const response = await Axios.delete(`/v1/class-owner/` + id);
+      getList();
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const getList = async () => {
     const rest = await Axios.get("v1/class-owner/all");
     setList(rest.data.data);
@@ -57,7 +66,12 @@ const AdminList = () => {
                   <td>
                     <div className="functionsContainer">
                       <div className="btn disable">غیر فعال سازی</div>
-                      <div className="btn delete">حذف</div>
+                      <div
+                        onClick={() => deleteAdmin(it.id)}
+                        className="btn delete"
+                      >
+                        حذف
+                      </div>
                       {/* <div className="btn edit">ویرایش اطلاعات</div> */}
                       {/* <div className="btn logs">لاگ پرداخت</div> */}
                     </div>
