@@ -58,7 +58,7 @@ const AdminList = () => {
                     <div className="functionsContainer">
                       <div className="btn disable">غیر فعال سازی</div>
                       <div className="btn delete">حذف</div>
-                      <div className="btn edit">ویرایش اطلاعات</div>
+                      {/* <div className="btn edit">ویرایش اطلاعات</div> */}
                       {/* <div className="btn logs">لاگ پرداخت</div> */}
                     </div>
                   </td>

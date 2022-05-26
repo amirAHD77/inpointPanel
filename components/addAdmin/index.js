@@ -66,7 +66,10 @@ const AddAdmin = (props) => {
           onChange={formik.handleChange}
           value={formik.values.name}
         />
-        <label htmlFor="userName"> نام کاربری(و رمز عبور) :</label>
+        <label htmlFor="userName">
+          {" "}
+          نام کاربری(نام کاربری و رمز عبور یکی میباشد) :
+        </label>
         <input
           id="userName"
           name="userName"
