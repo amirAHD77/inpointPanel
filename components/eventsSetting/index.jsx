@@ -10,6 +10,7 @@ const EventSetting = () => {
   const [pageStatus, setPageStatus] = useState("list");
   const [loading, setLoading] = useState(false);
   const [list, setList] = useState([]);
+
   const getList = async () => {
     try {
       const res = await axios.get("/v1/class/owner");
@@ -19,6 +20,7 @@ const EventSetting = () => {
       console.log(err);
     }
   };
+
   useEffect(() => {
     getList();
   }, []);
@@ -50,156 +52,22 @@ const EventSetting = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td className="name"> آنلاین غرب</td>
-                <td>
-                  <div className="functionsContainer">
-                    <div className="btn delete">حذف</div>
-                    <div className="btn edit">ویرایش اطلاعات</div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td className="name"> آنلاین غرب</td>
-                <td>
-                  <div className="functionsContainer">
-                    <div className="btn delete">حذف</div>
-                    <div className="btn edit">ویرایش اطلاعات</div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td className="name"> آنلاین غرب</td>
-                <td>
-                  <div className="functionsContainer">
-                    <div className="btn delete">حذف</div>
-                    <div className="btn edit">ویرایش اطلاعات</div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td className="name"> آنلاین غرب</td>
-                <td>
-                  <div className="functionsContainer">
-                    <div className="btn delete">حذف</div>
-                    <div className="btn edit">ویرایش اطلاعات</div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td className="name"> آنلاین غرب</td>
-                <td>
-                  <div className="functionsContainer">
-                    <div className="btn delete">حذف</div>
-                    <div className="btn edit">ویرایش اطلاعات</div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td className="name"> آنلاین غرب</td>
-                <td>
-                  <div className="functionsContainer">
-                    <div className="btn delete">حذف</div>
-                    <div className="btn edit">ویرایش اطلاعات</div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td className="name"> آنلاین غرب</td>
-                <td>
-                  <div className="functionsContainer">
-                    <div className="btn delete">حذف</div>
-                    <div className="btn edit">ویرایش اطلاعات</div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td className="name"> آنلاین غرب</td>
-                <td>
-                  <div className="functionsContainer">
-                    <div className="btn delete">حذف</div>
-                    <div className="btn edit">ویرایش اطلاعات</div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td className="name"> آنلاین غرب</td>
-                <td>
-                  <div className="functionsContainer">
-                    <div className="btn delete">حذف</div>
-                    <div className="btn edit">ویرایش اطلاعات</div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td className="name"> آنلاین غرب</td>
-                <td>
-                  <div className="functionsContainer">
-                    <div className="btn delete">حذف</div>
-                    <div className="btn edit">ویرایش اطلاعات</div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td className="name"> آنلاین غرب</td>
-                <td>
-                  <div className="functionsContainer">
-                    <div className="btn delete">حذف</div>
-                    <div className="btn edit">ویرایش اطلاعات</div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td className="name"> آنلاین غرب</td>
-                <td>
-                  <div className="functionsContainer">
-                    <div className="btn delete">حذف</div>
-                    <div className="btn edit">ویرایش اطلاعات</div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td className="name"> آنلاین غرب</td>
-                <td>
-                  <div className="functionsContainer">
-                    <div className="btn delete">حذف</div>
-                    <div className="btn edit">ویرایش اطلاعات</div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td className="name"> آنلاین غرب</td>
-                <td>
-                  <div className="functionsContainer">
-                    <div className="btn delete">حذف</div>
-                    <div className="btn edit">ویرایش اطلاعات</div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td className="name"> آنلاین غرب</td>
-                <td>
-                  <div className="functionsContainer">
-                    <div className="btn delete">حذف</div>
-                    <div className="btn edit">ویرایش اطلاعات</div>
-                  </div>
-                </td>
-              </tr>
+              {list?.length
+                ? list.map((item) => {
+                    return (
+                      <tr key={item.id}>
+                        <td>{item.id}</td>
+                        <td className="name">{item.name}</td>
+                        <td>
+                          <div className="functionsContainer">
+                            <div className="btn delete">حذف</div>
+                            <div className="btn edit">ویرایش اطلاعات</div>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })
+                : null}
             </tbody>
           </Table>
         </form>
