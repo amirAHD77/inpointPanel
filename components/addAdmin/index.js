@@ -52,7 +52,7 @@ const AddAdmin = (props) => {
   return (
     <AddAdminContainer colors={Themes.colors.super}>
       <Alert
-        text={"با موفقیت ایجاد شد"}
+        text={"پنل ادمین با موفقیت ایجاد شد"}
         title={"ثبت موفق"}
         show={show}
         setShow={setShow}
