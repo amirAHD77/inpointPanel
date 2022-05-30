@@ -55,7 +55,7 @@ const EventSetting = () => {
           >
             <thead>
               <tr>
-                <th>#</th>
+                <th>ردیف</th>
                 <th>رویدادها</th>
                 <th></th>
               </tr>
