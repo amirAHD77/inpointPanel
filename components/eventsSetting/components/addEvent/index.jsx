@@ -34,7 +34,7 @@ const AddEvent = (props) => {
           {
             headers: {
               // Accept: "application/vnd.GitHub.v3+json",
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${sessionStorage.getItem("token")}`,
             },
           }
         );
@@ -47,7 +47,6 @@ const AddEvent = (props) => {
             name: values.name,
             login_type: values.type,
             teacher_id: teacher.data.data.id,
-            student_id: [],
           },
           {
             headers: {

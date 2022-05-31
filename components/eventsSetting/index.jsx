@@ -21,7 +21,11 @@ const EventSetting = () => {
   };
   const getList = async () => {
     try {
-      const res = await axios.get("/v1/class/owner");
+      const res = await axios.get("/v1/class/owner", {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      });
       setList(res.data.data);
       console.log(res.data);
       setLoading(false);
