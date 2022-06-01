@@ -4,6 +4,7 @@ import { Form } from "react-bootstrap";
 
 import GuestsListContainer from "./index.style";
 import Themes from "../../utils/themes";
+import Head from "next/head";
 
 const GuestsList = () => {
   const formik = useFormik({
@@ -16,6 +17,10 @@ const GuestsList = () => {
   });
   return (
     <GuestsListContainer colors={Themes.colors.admin}>
+      <Head>
+        <title key="title">غرب آنلاین - انتخاب کاربران میهمان</title>
+        <link rel="shortcut icon" href="/images/gharbOnline.png" />
+      </Head>
       <form onSubmit={formik.handleSubmit}>
         <label htmlFor="amount">انتخاب رویداد :</label>
 

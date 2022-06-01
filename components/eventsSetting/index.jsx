@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import axios from "../../utils/axios";
 import EventSettingContainer from "./index.style";
 import AddEvent from "./components/addEvent/index";
+import Head from "next/head";
 
 const EventSetting = () => {
   const [pageStatus, setPageStatus] = useState("list");
@@ -36,6 +37,10 @@ const EventSetting = () => {
 
   return (
     <EventSettingContainer>
+      <Head>
+        <title key="title">غرب آنلاین - فهرست رویدادها</title>
+        <link rel="shortcut icon" href="/images/gharbOnline.png" />
+      </Head>
       {pageStatus === "list" ? (
         <form>
           <div className="headerContainer">

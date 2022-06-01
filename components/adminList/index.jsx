@@ -6,6 +6,7 @@ import { Table } from "react-bootstrap";
 import AdminListContainer from "./index.style";
 import Themes from "../../utils/themes";
 import Axios from "../../utils/axios";
+import Head from "next/head";
 
 const AdminList = () => {
   const [list, setList] = useState([]);
@@ -39,6 +40,10 @@ const AdminList = () => {
   }, []);
   return (
     <AdminListContainer colors={Themes.colors.super}>
+      <Head>
+        <title key="title">این‌پوینت - مدیریت پنل های فعال</title>
+        <link rel="shortcut icon" href="/images/inpoint connect logo PNG.png" />
+      </Head>
       <form onSubmit={formik.handleSubmit}>
         <h5 className="headerTitle">مدیریت پنل های فعال</h5>
         <Table
@@ -65,7 +70,7 @@ const AdminList = () => {
                   {/* <td>{it.credit}</td> */}
                   <td>
                     <div className="functionsContainer">
-                      <div className="btn disable">غیر فعال سازی</div>
+                      {/* <div className="btn disable">غیر فعال سازی</div> */}
                       <div
                         onClick={() => deleteAdmin(it.id)}
                         className="btn delete"

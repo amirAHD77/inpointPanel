@@ -5,6 +5,7 @@ import AddAdminContainer from "../../components/addAdmin/index.style";
 import Themes from "../../utils/themes";
 import Alert from "../utils/Alert";
 import Axios from "../../utils/axios";
+import Head from "next/head";
 const AddAdmin = (props) => {
   const [loading, setLoading] = useState();
   const [show, setShow] = useState(false);
@@ -51,6 +52,10 @@ const AddAdmin = (props) => {
   });
   return (
     <AddAdminContainer colors={Themes.colors.super}>
+      <Head>
+        <title key="title">این‌پوینت - اکانت ادمین</title>
+        <link rel="shortcut icon" href="/images/inpoint connect logo PNG.png" />
+      </Head>
       <Alert
         text={"پنل ادمین با موفقیت ایجاد شد"}
         title={"ثبت موفق"}
