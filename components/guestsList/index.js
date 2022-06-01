@@ -1,12 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { Form } from "react-bootstrap";
-
+import axios from "../../utils/axios";
 import GuestsListContainer from "./index.style";
 import Themes from "../../utils/themes";
 import Head from "next/head";
 
 const GuestsList = () => {
+  const [data, setData] = useState();
+  const getClasses = async () => {
+    const res = await axios.get("v1/class/owner");
+    setData(res.data.data.filter((it) => it.login_type === "FREE"));
+  };
+  useEffect(() => {
+    getClasses();
+  }, []);
   const formik = useFormik({
     initialValues: {
       amount: "",
@@ -33,9 +41,16 @@ const GuestsList = () => {
           value={formik.values.amount}
         >
           <option>یک گزینه انتخاب کنید</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+
+          {data?.length
+            ? data.map((it) => {
+                return (
+                  <option key={it.id} value={it.id}>
+                    {it.name}
+                  </option>
+                );
+              })
+            : null}
         </Form.Select>
 
         <button type="submit">دانلود فایل اطلاعات بینندگان</button>
