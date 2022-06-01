@@ -30,6 +30,7 @@ const Login = (props) => {
           Authorization: `Bearer ${res.data.data.access_token}`,
         },
       });
+      sessionStorage.setItem("uuid", res2.data.data.id);
       dispatch(loginAction(res2.data.data));
 
       window.sessionStorage.setItem("role", res2.data.data.roles[0].name);
@@ -38,7 +39,7 @@ const Login = (props) => {
       } else if (res2.data.data.roles[0].name === "OWNER") {
         router.push(`/eventsSetting`);
       } else {
-        alert("شما به دسترسی لازم برای این بخش را ندارید");
+        alert("شما دسترسی لازم برای این بخش را ندارید");
         return;
       }
     } catch (err) {
