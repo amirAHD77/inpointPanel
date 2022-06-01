@@ -69,7 +69,7 @@ const AddEvent = (props) => {
       }
 
       const formData = new FormData();
-      formData.append("selectedFile", selectedFile);
+      formData.append("file", selectedFile);
       try {
         const response = await Axios.post(
           "/v1/class/upload/" + sessionStorage.getItem("uuid"),
