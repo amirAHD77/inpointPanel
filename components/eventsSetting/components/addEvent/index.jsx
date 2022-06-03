@@ -177,7 +177,7 @@ const AddEvent = (props) => {
 
         {classType === "PRIVATE" && (
           <div>
-            <label htmlFor="password">آپلود فایل اکسل :</label>
+            <label htmlFor="name">آپلود فایل اکسل :</label>
             <input
               name="file"
               onChange={handleFileSelect}

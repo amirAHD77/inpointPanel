@@ -11,7 +11,7 @@ if (typeof window !== "undefined") {
 console.log(token);
 const Axios = axios.create({
   baseURL: api.main,
-  timeout: 6000,
+  // timeout: 6000,
   headers: {
     // Accept: "application/vnd.GitHub.v3+json",
     Authorization: `Bearer ${token}`,

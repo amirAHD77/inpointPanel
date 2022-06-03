@@ -9,18 +9,46 @@ import Head from "next/head";
 const GuestsList = () => {
   const [data, setData] = useState();
   const getClasses = async () => {
-    const res = await axios.get("v1/class/owner");
-    setData(res.data.data.filter((it) => it.login_type === "FREE"));
+    try {
+      const res = await axios.get("v1/class/owner");
+      setData(res.data.data.filter((it) => it.login_type === "FREE"));
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
   };
   useEffect(() => {
     getClasses();
   }, []);
+  const download = async (values) => {
+    try {
+      console.log(values);
+      // const res = await axios.get("v1/class/user/free/" + values.id);
+      axios({
+        url: "v1/class/user/free/" + values.id, //your url
+        method: "GET",
+        responseType: "blob", // important
+      }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "users.xlsx"); //or any other extension
+        document.body.appendChild(link);
+        link.click();
+      });
+      // setData(res.data.data.filter((it) => it.login_type === "FREE"));
+    } catch (err) {
+      console.log(err);
+      alert("کلاس مورد نظر یوزری ندارد");
+    }
+  };
   const formik = useFormik({
     initialValues: {
-      amount: "",
+      id: "",
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      download(values);
+      // alert(JSON.stringify(values, null, 2));
     },
   });
   return (
@@ -34,8 +62,8 @@ const GuestsList = () => {
 
         <Form.Select
           className="input"
-          id="amount"
-          name="amount"
+          id="id"
+          name="id"
           aria-label="Default select example"
           onChange={formik.handleChange}
           value={formik.values.amount}
