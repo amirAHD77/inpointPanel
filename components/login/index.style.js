@@ -13,8 +13,7 @@ const LoginContainer = styled.div`
   .boxContainer {
     background-color: #eee;
     height: 350px;
-    border: 3px solid
-      ${(props) => (props.colors.second ? props.colors.second : "black")};
+    border: 3px solid #fe8f00;
     border-radius: 12px;
     padding: 16px;
     position: relative;
@@ -63,7 +62,7 @@ const LoginContainer = styled.div`
   }
 
   .button {
-    background-color: #2a5a38;
+    background-color: #fe8f00;
     height: 50px;
     border-radius: 8px;
     color: white;
@@ -75,26 +74,24 @@ const LoginContainer = styled.div`
   }
   .button:hover {
     cursor: pointer;
-    background-color: #28773f;
   }
 
   .supportText {
-    color: black;
     position: absolute;
     bottom: -100px;
     width: 90%;
     text-align: center;
-    font-weight: bold;
-    color: #666;
+    /* font-weight: bold; */
+    color: #999;
     font-size: 16px;
-    border: 3px solid #28773f;
+    /* border: 3px solid #28773f; */
     margin-left: 5px;
     padding: 12px;
     border-radius: 12px;
   }
 
-  .supportText:hover {
+  /* .supportText:hover {
     cursor: pointer;
-  }
+  } */
 `;
 export default LoginContainer;

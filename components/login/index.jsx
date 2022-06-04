@@ -74,6 +74,7 @@ const Login = (props) => {
               <div className="header">
                 <img
                   src="/images/gharbOnline.png"
+                  width
                   alt="inPoint img"
                   width={"50%"}
                 />
@@ -114,10 +115,10 @@ const Login = (props) => {
           )}
         </Formik>
         <div
-          onClick={() => window.open("tel:09010187117")}
+          // onClick={() => window.open("tel:09010187117")}
           className="supportText"
         >
-          تماس با پشتیبانی : 09010187117
+          کلیه حقوق مادی و معنوی پلتفرم متعلق به آموزشگاه غرب آنلاین می باشد
         </div>
       </div>
     </LoginContainer>

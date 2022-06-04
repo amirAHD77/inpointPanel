@@ -22,7 +22,6 @@ const AddEvent = (props) => {
     if (classType === "FREE") {
       try {
         setLoading(true);
-        console.log("1111111111111111111111112");
 
         const teacher = await Axios.post(
           process.env.MAIN_PATH + "v1/teacher",
@@ -39,7 +38,6 @@ const AddEvent = (props) => {
           }
         );
 
-        console.log("222222222222222222222222222222");
 
         const addClass = await Axios.post(
           process.env.MAIN_PATH + "v1/class",
@@ -55,7 +53,6 @@ const AddEvent = (props) => {
             },
           }
         );
-        console.log("addClass :>> ", addClass);
         props.setPageStatus("list");
       } catch (e) {
         alert(e?.response?.data?.message);
