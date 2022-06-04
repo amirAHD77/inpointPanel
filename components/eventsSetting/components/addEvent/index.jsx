@@ -58,7 +58,8 @@ const AddEvent = (props) => {
         console.log("addClass :>> ", addClass);
         props.setPageStatus("list");
       } catch (e) {
-        console.error(e);
+        alert(e?.response?.data?.message);
+        console.log(e?.response?.data?.message);
       }
     }
     if (classType === "PRIVATE") {
@@ -66,6 +67,7 @@ const AddEvent = (props) => {
       if (!selectedFile) {
         setLoading(false);
         alert("لطفا ابتدا فایل را انتخاب کنید");
+        return;
       }
 
       const formData = new FormData();
@@ -81,10 +83,12 @@ const AddEvent = (props) => {
             },
           }
         );
+
         props.setPageStatus("list");
         console.log("response: ", response);
       } catch (error) {
-        console.log(error);
+        alert(error?.response?.data?.message);
+        console.log(Object.entries(error));
       }
     }
   };

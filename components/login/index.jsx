@@ -56,7 +56,7 @@ const Login = (props) => {
   return (
     <LoginContainer colors={colors}>
       <Head>
-        <title>این‌پوینت کانکت</title>
+        <title>غرب‌ آنلاین</title>
         <link rel="shortcut icon" href="/images/inpoint connect logo PNG.png" />
       </Head>
       <div className={"col-11 col-md-7 col-lg-3 boxContainer"}>
@@ -73,7 +73,7 @@ const Login = (props) => {
             <Form className="form">
               <div className="header">
                 <img
-                  src="/images/inpoint connect logo PNG.png"
+                  src="/images/gharbOnline.png"
                   alt="inPoint img"
                   width={"50%"}
                 />

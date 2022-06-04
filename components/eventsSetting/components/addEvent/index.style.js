@@ -11,10 +11,11 @@ const AddEventContainer = styled.div`
     /* border: 1px solid #ddd; */
     padding: 24px;
     border-radius: 12px;
+
     display: flex;
     flex-direction: column;
     box-shadow: 0px 0px 10px 3px rgba(69, 94, 100, 0.12);
-    overflow-y: hidden;
+    overflow-y: scroll;
   }
 
   .input {
