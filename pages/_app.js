@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { useRouter } from "next/router";
 
-import { makeStore } from "../redux/Store";
+import { makeStore } from "../redux/store";
 import Layout from "../layout/index.jsx";
 
 import "bootstrap/dist/css/bootstrap.min.css";
