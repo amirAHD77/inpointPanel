@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
@@ -74,7 +74,6 @@ const Login = (props) => {
               <div className="header">
                 <img
                   src="/images/gharbOnline.png"
-                  width
                   alt="inPoint img"
                   width={"50%"}
                 />

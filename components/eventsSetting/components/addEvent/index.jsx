@@ -12,7 +12,6 @@ const AddEvent = (props) => {
   const [selectedFile, setSelectedFile] = useState();
 
   const add = async (values) => {
-    console.log("0000000000000");
     let token;
     if (typeof window !== "undefined") {
       token = sessionStorage.getItem("token")
@@ -37,7 +36,6 @@ const AddEvent = (props) => {
             },
           }
         );
-
 
         const addClass = await Axios.post(
           process.env.MAIN_PATH + "v1/class",
