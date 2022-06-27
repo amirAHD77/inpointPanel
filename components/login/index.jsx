@@ -57,7 +57,7 @@ const Login = (props) => {
     <LoginContainer colors={colors}>
       <Head>
         <title>غرب‌ آنلاین</title>
-        <link rel="shortcut icon" href="/images/inpoint connect logo PNG.png" />
+        <link rel="shortcut icon" href="/images/gharbOnline.png" />
       </Head>
       <div className={"col-11 col-md-7 col-lg-3 boxContainer"}>
         <Formik
