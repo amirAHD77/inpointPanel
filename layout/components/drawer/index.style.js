@@ -23,7 +23,7 @@ export const DrawerContainer = styled.div`
     height: 30px;
   }
   .button {
-    background-color: orange;
+    background-color: #2a5a38;
     border-radius: 8px;
     padding: 4px 8px;
     border: none;

@@ -29,7 +29,7 @@ const EventSettingContainer = styled.div`
   .headerButton {
     width: 120px;
     text-align: center;
-    background-color: orange;
+    background-color: #2a5a38;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,7 +44,7 @@ const EventSettingContainer = styled.div`
   }
 
   .headerTitle {
-    color: orange;
+    color: #2a5a38;
     text-align: center;
   }
 
@@ -90,8 +90,8 @@ const EventSettingContainer = styled.div`
   }
 
   .edit {
-    color: orange;
-    border-color: orange;
+    color: #2a5a38;
+    border-color: #2a5a38;
   }
 
   .logs {

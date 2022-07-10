@@ -66,8 +66,8 @@ const AdminListContainer = styled.div`
   }
 
   .edit {
-    color: orange;
-    border-color: orange;
+    color: #2a5a38;
+    border-color: #2a5a38;
   }
 
   .logs {

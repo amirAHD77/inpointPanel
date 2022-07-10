@@ -13,7 +13,7 @@ const LoginContainer = styled.div`
   .boxContainer {
     background-color: #eee;
     height: 350px;
-    border: 3px solid #fe8f00;
+    border: 3px solid #2a5a38;
     border-radius: 12px;
     padding: 16px;
     position: relative;
@@ -62,7 +62,7 @@ const LoginContainer = styled.div`
   }
 
   .button {
-    background-color: #fe8f00;
+    background-color: #2a5a38;
     height: 50px;
     border-radius: 8px;
     color: white;

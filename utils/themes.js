@@ -5,7 +5,7 @@ const Themes = {
       secondary: "#e9e8ee !important",
     },
     admin: {
-      main: "#ff7227 !important",
+      main: "#2a5a38 !important",
       secondary: "#e9e8ee !important",
     },
   },

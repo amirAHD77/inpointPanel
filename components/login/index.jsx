@@ -113,12 +113,12 @@ const Login = (props) => {
             </Form>
           )}
         </Formik>
-        <div
+        {/* <div
           // onClick={() => window.open("tel:09010187117")}
           className="supportText"
         >
           کلیه حقوق مادی و معنوی پلتفرم متعلق به آموزشگاه غرب آنلاین می باشد
-        </div>
+        </div> */}
       </div>
     </LoginContainer>
   );

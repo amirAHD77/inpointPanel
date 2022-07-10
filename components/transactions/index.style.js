@@ -36,7 +36,7 @@ const TransactionsContainer = styled.div`
   }
 
   button {
-    background-color: orange;
+    background-color: #2a5a38;
     border: 0;
     border-radius: 8px;
     width: 250px;
