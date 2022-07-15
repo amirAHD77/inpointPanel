@@ -56,7 +56,7 @@ const Login = (props) => {
   return (
     <LoginContainer colors={colors}>
       <Head>
-        <title>غرب‌ آنلاین</title>
+        <title>این پوینت</title>
         <link rel="shortcut icon" href="/images/gharbOnline.png" />
       </Head>
       <div className={"col-11 col-md-7 col-lg-3 boxContainer"}>
