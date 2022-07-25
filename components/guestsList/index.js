@@ -54,7 +54,7 @@ const GuestsList = () => {
   return (
     <GuestsListContainer colors={Themes.colors.admin}>
       <Head>
-        <title key="title">غرب آنلاین - انتخاب کاربران میهمان</title>
+        <title key="title">این‌پوینت - انتخاب کاربران میهمان</title>
         <link rel="shortcut icon" href="/images/gharbOnline.png" />
       </Head>
       <form onSubmit={formik.handleSubmit}>

@@ -42,7 +42,7 @@ const EventSetting = () => {
   return (
     <EventSettingContainer>
       <Head>
-        <title key="title">غرب آنلاین - فهرست رویدادها</title>
+        <title key="title">این‌پوینت - فهرست رویدادها</title>
         <link rel="shortcut icon" href="/images/gharbOnline.png" />
       </Head>
       {pageStatus === "list" ? (

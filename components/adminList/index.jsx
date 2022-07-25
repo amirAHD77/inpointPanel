@@ -21,6 +21,7 @@ const AdminList = () => {
     }
   };
   const getList = async () => {
+    setLoading(true);
     const rest = await Axios.get("v1/class-owner/all");
     setList(rest.data.data);
     setLoading(false);
@@ -62,28 +63,32 @@ const AdminList = () => {
             </tr>
           </thead>
           <tbody>
-            {list.map((it) => {
-              return (
-                <tr key={it.id}>
-                  <td>{it.id}</td>
-                  <td className="name">{it.name}</td>
-                  {/* <td>{it.credit}</td> */}
-                  <td>
-                    <div className="functionsContainer">
-                      {/* <div className="btn disable">غیر فعال سازی</div> */}
-                      <div
-                        onClick={() => deleteAdmin(it.id)}
-                        className="btn delete"
-                      >
-                        حذف
+            {!loading ? (
+              list.map((it) => {
+                return (
+                  <tr key={it.id}>
+                    <td>{it.id}</td>
+                    <td className="name">{it.name}</td>
+                    {/* <td>{it.credit}</td> */}
+                    <td>
+                      <div className="functionsContainer">
+                        {/* <div className="btn disable">غیر فعال سازی</div> */}
+                        <div
+                          onClick={() => deleteAdmin(it.id)}
+                          className="btn delete"
+                        >
+                          حذف
+                        </div>
+                        {/* <div className="btn edit">ویرایش اطلاعات</div> */}
+                        {/* <div className="btn logs">لاگ پرداخت</div> */}
                       </div>
-                      {/* <div className="btn edit">ویرایش اطلاعات</div> */}
-                      {/* <div className="btn logs">لاگ پرداخت</div> */}
-                    </div>
-                  </td>
-                </tr>
-              );
-            })}
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <div>لطفا صبر کنید...</div>
+            )}
           </tbody>
         </Table>
       </form>

@@ -34,7 +34,7 @@ const AddAdmin = (props) => {
       formik.setFieldValue("password", "");
       setLoading(false);
     } catch (e) {
-      console.error(e);
+      alert(e.response.data.message);
       setLoading(false);
     }
   };

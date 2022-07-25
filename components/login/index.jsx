@@ -12,6 +12,7 @@ import { loginAction } from "./action";
 
 const Login = (props) => {
   const [wrongPass, setWrongPass] = useState(false);
+  const [netErr, setNetErr] = useState(false);
   const [loading, setLoading] = useState(false);
   const [test, setTest] = useState();
   const router = useRouter();
@@ -43,8 +44,12 @@ const Login = (props) => {
         return;
       }
     } catch (err) {
-      setWrongPass(true);
-      console.log("err", err);
+      console.log(err.message);
+      if (err.message === "Network Error") {
+        setNetErr(true);
+      } else {
+        setWrongPass(true);
+      }
       setLoading(false);
     }
   };
@@ -102,6 +107,7 @@ const Login = (props) => {
 
               <label className="w-100 err">
                 {wrongPass ? "نام کاربری یا رمز عبور صحیح نیست" : null}
+                {netErr && "اتصال اینترنت دستگاه را مجددا چک کنید"}
                 <button
                   // disabled={loading}
                   className="button w-100"
