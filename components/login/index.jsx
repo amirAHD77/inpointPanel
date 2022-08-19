@@ -44,7 +44,6 @@ const Login = (props) => {
         return;
       }
     } catch (err) {
-      console.log(err.message);
       if (err.message === "Network Error") {
         setNetErr(true);
       } else {
